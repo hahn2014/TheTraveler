@@ -20,13 +20,13 @@ MonoBehaviour:
     min: 0
     max: 4
   thicknessModifier:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
     min: 1
     max: 10
   directLightingStrength:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 0.06
     min: 0
     max: 1
   noiseFilterTolerance:
@@ -155,8 +155,8 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 2
   skyAmbientMode:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 1
   fogType:
     m_OverrideState: 1
     m_Value: 3
@@ -227,8 +227,8 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0
   exposure:
-    m_OverrideState: 1
-    m_Value: 6
+    m_OverrideState: 0
+    m_Value: 5
   multiplier:
     m_OverrideState: 0
     m_Value: 1
@@ -241,8 +241,8 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 20000
   updateMode:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 2
   updatePeriod:
     m_OverrideState: 0
     m_Value: 0
@@ -266,7 +266,7 @@ MonoBehaviour:
     min: 0
     max: 5
   skyTint:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: {r: 0.9716981, g: 0.7134385, b: 0.43543077, a: 1}
     hdr: 0
     showAlpha: 1
