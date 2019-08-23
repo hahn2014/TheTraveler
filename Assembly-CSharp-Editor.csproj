@@ -62,7 +62,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\TutorialInfo\Scripts\Editor\ReadmeEditor.cs" />
+    <Compile Include="Assets\CodeStage\AdvancedFPSCounter\Scripts\Editor\AFPSCounterEditor.cs" />
+    <Compile Include="Assets\CodeStage\AdvancedFPSCounter\Scripts\Editor\EditorUIUtils.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>/Users/brycehahn/Desktop/Programming/Unity/TheTraveler/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

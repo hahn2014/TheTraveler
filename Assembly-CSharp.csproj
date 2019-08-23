@@ -62,11 +62,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CodeStage\AdvancedFPSCounter\Scripts\AFPSCounter.cs" />
+    <Compile Include="Assets\CodeStage\AdvancedFPSCounter\Scripts\CountersData\BaseCounterData.cs" />
+    <Compile Include="Assets\CodeStage\AdvancedFPSCounter\Scripts\CountersData\DeviceInfoCounterData.cs" />
+    <Compile Include="Assets\CodeStage\AdvancedFPSCounter\Scripts\CountersData\FPSCounterData.cs" />
+    <Compile Include="Assets\CodeStage\AdvancedFPSCounter\Scripts\CountersData\MemoryCounterData.cs" />
+    <Compile Include="Assets\CodeStage\AdvancedFPSCounter\Scripts\Enums\FPSLevel.cs" />
+    <Compile Include="Assets\CodeStage\AdvancedFPSCounter\Scripts\Enums\OperationMode.cs" />
+    <Compile Include="Assets\CodeStage\AdvancedFPSCounter\Scripts\Label\DrawableLabel.cs" />
+    <Compile Include="Assets\CodeStage\AdvancedFPSCounter\Scripts\Label\LabelAnchor.cs" />
+    <Compile Include="Assets\CodeStage\AdvancedFPSCounter\Scripts\Label\LabelEffect.cs" />
+    <Compile Include="Assets\CodeStage\AdvancedFPSCounter\Scripts\Utils\UIUtils.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\MenuHandlers\LoadWorldHandler.cs" />
     <Compile Include="Assets\Scripts\MenuHandlers\MainMenuHandler.cs" />
     <Compile Include="Assets\Scripts\MenuHandlers\SettingsHandler.cs" />
-    <Compile Include="Assets\Scripts\NewMonoBehaviour.cs" />
     <Compile Include="Assets\Scripts\ShaderActivators\PauseMenuBlur.cs" />
     <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />

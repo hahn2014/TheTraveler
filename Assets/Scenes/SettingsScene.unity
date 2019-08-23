@@ -2943,6 +2943,7 @@ MonoBehaviour:
   fullscreenToggle: {fileID: 1233128198}
   availableQualities: {fileID: 780657638}
   fpsCounter: {fileID: 1826374625}
+  afps: {fileID: 0}
 --- !u!1 &1049509864
 GameObject:
   m_ObjectHideFlags: 0
@@ -5860,7 +5861,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1021616611}
-        m_MethodName: toggleFullscreen
+        m_MethodName: toggleFPSCounter
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

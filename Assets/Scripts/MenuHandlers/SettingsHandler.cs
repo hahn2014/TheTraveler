@@ -19,8 +19,10 @@ public class SettingsHandler : MonoBehaviour {
     [SerializeField] private TMP_Dropdown availableQualities;
     [Tooltip("Toggle on or off an minimalistic FPS counter.")]
     [SerializeField] private Toggle fpsCounter;
+    [Tooltip("Advance FPS Counter Object")]
+    [SerializeField] private GameObject afps;
 
-    private Resolution[] resolutions;
+	private Resolution[] resolutions;
     private string[] qualities;
 
     void Start() {
@@ -29,15 +31,17 @@ public class SettingsHandler : MonoBehaviour {
         string t = "";
         resolutions = Screen.resolutions;
         qualities = QualitySettings.names;
+        afps = GameObject.FindWithTag("FPSCounter");
 
-
-        foreach (Resolution res in resolutions) {
+		foreach (Resolution res in resolutions) {
             t = res.width.ToString() + 'x' + res.height.ToString();
             availableResolutions.options.Add(new TMP_Dropdown.OptionData() { text = t });
         }
+
         foreach (string i in qualities) {
             availableQualities.options.Add(new TMP_Dropdown.OptionData() { text = i });
         }
+
         foreach(GameObject g in tabs) {
             g.GetComponent<Image>().color = new Color(100, 100, 100, 255);
             RectTransform rt = g.GetComponentInParent<RectTransform>(); //get the parent rectangle
@@ -46,14 +50,15 @@ public class SettingsHandler : MonoBehaviour {
             }
         }
 
-
         availableResolutions.value = 1;
         availableQualities.value = 1;
         fullscreenToggle.enabled = false;
         fpsCounter.enabled = true;
+		afps.SetActive(true);
+		DontDestroyOnLoad(afps);
 
-        //action listeners
-        availableQualities.onValueChanged.AddListener(delegate {
+		//action listeners
+		availableQualities.onValueChanged.AddListener(delegate {
             changeGraphicsQuality(availableQualities.value);
         });
         availableResolutions.onValueChanged.AddListener(delegate {
@@ -79,6 +84,12 @@ public class SettingsHandler : MonoBehaviour {
     public void toggleFullscreen() {
         Screen.fullScreen = !Screen.fullScreen;
     }
+
+    public void toggleFPSCounter() {
+        if (afps != null) {
+			afps.SetActive(fpsCounter.isOn);
+		}
+	}
 
     //we want to make sure there is no pre-saved settings
     private void checkForPlayerPref() {
