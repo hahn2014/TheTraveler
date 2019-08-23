@@ -9,13 +9,16 @@ using UnityEditor;
 
 public class SettingsHandler : MonoBehaviour {
     [Header("Video Settings")]
-    [Tooltip("Video Resolutions")]
+    [Tooltip("Settings tab controls.")]
+    [SerializeField] private GameObject[] tabs;
+    [Tooltip("Switch between available native monitor resolutions.")]
     [SerializeField] private TMP_Dropdown availableResolutions;
-    [Tooltip("Fullscreen toggler")]
+    [Tooltip("Toggle between fullscreen and windowed.")]
     [SerializeField] private Toggle fullscreenToggle;
-    [Tooltip("Video Qualities")]
+    [Tooltip("Switch between predetermined video qualities.")]
     [SerializeField] private TMP_Dropdown availableQualities;
-
+    [Tooltip("Toggle on or off an minimalistic FPS counter.")]
+    [SerializeField] private Toggle fpsCounter;
 
     private Resolution[] resolutions;
     private string[] qualities;
@@ -35,10 +38,19 @@ public class SettingsHandler : MonoBehaviour {
         foreach (string i in qualities) {
             availableQualities.options.Add(new TMP_Dropdown.OptionData() { text = i });
         }
+        foreach(GameObject g in tabs) {
+            g.GetComponent<Image>().color = new Color(100, 100, 100, 255);
+            RectTransform rt = g.GetComponentInParent<RectTransform>(); //get the parent rectangle
+            if (rt.GetSiblingIndex() == -1) {    //if  the sibling index is -1, it was the last tab clicked
+                g.GetComponent<Image>().color = new Color(140, 140, 140, 255);
+            }
+        }
+
 
         availableResolutions.value = 1;
         availableQualities.value = 1;
         fullscreenToggle.enabled = false;
+        fpsCounter.enabled = true;
 
         //action listeners
         availableQualities.onValueChanged.AddListener(delegate {
@@ -72,14 +84,16 @@ public class SettingsHandler : MonoBehaviour {
     private void checkForPlayerPref() {
         availableResolutions.value = PlayerPrefs.GetInt("Resolution");
         availableQualities.value = PlayerPrefs.GetInt("Quality");
-        fullscreenToggle.enabled = (PlayerPrefs.GetInt("Fullscreen") == 1);
+        fullscreenToggle.isOn = (PlayerPrefs.GetInt("Fullscreen") == 1);
+        fpsCounter.isOn = (PlayerPrefs.GetInt("FPSCounter") == 1);
     }
 
     public void SaveAndGoBack() {
         //save settings in userprof (bool as 0 or 1 int)
         PlayerPrefs.SetInt("Resolution", availableResolutions.value);
         PlayerPrefs.SetInt("Quality", availableQualities.value);
-        PlayerPrefs.SetInt("Fullscreen", (Screen.fullScreen ? 1 : 0));
+        PlayerPrefs.SetInt("Fullscreen", fullscreenToggle.isOn ? 1 : 0);
+        PlayerPrefs.SetInt("FPSCounter", fpsCounter.isOn ? 1 : 0);
 
         PlayerPrefs.Save(); //force save all keys
         SceneManager.LoadScene("MainMenu");

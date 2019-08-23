@@ -7,13 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuHandler : MonoBehaviour {
 
-
-    [SerializeField] private Button loadSavebtn;
-
-    void Awake() {
-        loadSavebtn.enabled = File.Exists(Application.persistentDataPath + "/gamesave.save");
-    }
-
     void Update() {
         
     }

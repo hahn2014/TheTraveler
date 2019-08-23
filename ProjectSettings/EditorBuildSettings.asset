@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 5f3222ce19c4947c0b1019220c0b4fb2
   - enabled: 1
+    path: Assets/Scenes/LoadSaveScene.unity
+    guid: 7d826f48759014b3381dc326efddf536
+  - enabled: 1
     path: Assets/Scenes/SettingsScene.unity
     guid: 7ce9ac7111bf94d22b905246b4847b64
   - enabled: 1
